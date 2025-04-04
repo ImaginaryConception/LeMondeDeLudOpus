@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter au panier{% endblock %}
+
+{% block header %}Ajouter au panier{% endblock %}
+
+{% block body %}
+
+  <div class="d-flex justify-content-center my-5" id="btn-row">
+    <a id="cancel-reserve" href="{{ path('library') }}"><i class="fa-solid fa-xmark"></i> Annuler</a>
+    <a id="confirm-reserve" href="{{ path('reservationExec', {'id': article.id, 'userId' : user.id }) }}"><i class="fa-solid fa-check"></i> Confirmer</a>
+  </div>
+{% endblock %}

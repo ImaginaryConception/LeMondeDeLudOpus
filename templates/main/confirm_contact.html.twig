@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmer{% endblock %}
+
+{% block header %}Confirmer{% endblock %}
+
+{% block body %}
+
+<div id="confirm_reserve_form" class="row my-5 mx-auto">
+
+  {{ form_start( confirm_form ) }}
+
+  {{ form_errors( confirm_form ) }}
+
+  {{ form_row( confirm_form.email) }}
+
+  <p class="text-light text-center">Laissez votre adresse e-mail à l'utilisateur afin qu'il puisse vous recontacter, si besoin.</p>
+
+  {{ form_row( confirm_form.instructions) }}
+
+  <p class="text-light text-center">Décrivez les instructions pour récupérer l'article à l'utilisateur.</p>
+
+  {{ form_row( confirm_form.save ) }}
+
+  {{ form_end( confirm_form ) }}
+
+</div>
+
+{% endblock %}

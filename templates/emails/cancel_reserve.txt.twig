@@ -1,0 +1,5 @@
+La réservation numéro {{ reservation_id }} d'un montant {% if reservation_price == 'Non renseigné' %}non renseigné{% else %}de {{ reservation_price }}€{% endif %} chez Le Monde de Lud'Opus a été annulée par l'utilisateur!
+Qui a annulée sa réservation: {{ user_firstname }} {{ user_lastname }}Recontactez-le avec ce mail: {{ user_email }}
+Titre de l'article: {{ reservation_title }}
+Auteur de l'article: {{ reservation_author }}
+Édition de l'article: {{ reservation_edition }}

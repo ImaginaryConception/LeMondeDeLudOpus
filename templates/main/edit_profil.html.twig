@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification du profil{% endblock %}
+
+{% block header %}Modification du profil{% endblock %}
+
+{% block body %}
+
+<div id="edit_profil_form" class="row my-5 mx-auto">
+
+  {{ form_start( edit_profil_form ) }}
+
+  {{ form_errors( edit_profil_form ) }}
+
+  {{ form_row( edit_profil_form.lastname ) }}
+
+  {{ form_row( edit_profil_form.firstname ) }}
+
+  {{ form_row( edit_profil_form.email) }}
+
+  <div class="d-flex justify-content-center mb-3">
+    <a class="text-center" aria-current="page" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a>
+  </div>
+
+  {{ form_row( edit_profil_form.save ) }}
+
+  {{ form_end( edit_profil_form ) }}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block header %}Utilisateurs{% endblock %}
+
+{% block body %}
+
+<div id="global-view" class="row p-3">
+
+    {% for user in users %}
+
+    <div id="user-list" class="my-5 row mx-auto">
+
+        <p class="text-light article-no-title text-center"><span class="fw-bold mx-2">E-mail</span></p>
+        <p class="text-light article-size text-center">{{ user.email }}</p>
+		<hr class="text-light mx-auto w-25">
+        {% if "ROLE_ADMIN" in user.roles %}
+        <p class="text-light article-no-title text-center"><span class="fw-bold mx-2">Rôle</span></p>
+        <p class="text-light article-size text-center">Administrateur</p>
+        <hr class="text-light mx-auto w-25">
+        {% elseif "ROLE_USER" in user.roles %}
+        <p class="text-light article-no-title text-center"><span class="fw-bold mx-2">Rôle</span></p>
+        <p class="text-light article-size text-center">Utilisateur</p>
+        <hr class="text-light mx-auto w-25">
+        {% endif %}
+
+        <p class="text-light article-no-title text-center"><span class="fw-bold mx-2">Prénom</span></p>
+        <p class="text-light article-size text-center">{{ user.firstname }}</p>
+        <hr class="text-light mx-auto w-25">
+        <p class="text-light article-no-title text-center"><span class="fw-bold mx-2">Nom</span></p>
+        <p class="text-light article-size text-center">{{ user.lastname }}</p>
+
+        <div class="d-flex justify-content-center my-5" id="btn-row">
+
+            <a id="delete_user" class="mx-auto" href="{{ path('delete_user', {'id': user.id, csrf_token: csrf_token('delete_user_' ~ user.id ) }) }}"><i class="fa-solid fa-user-minus"></i> Supprimer</a>
+
+            <a id="contact_user" class="mx-auto" href="{{ path('contact_user', {'id': user.id, csrf_token: csrf_token('contact_user_' ~ user.id ) }) }}"><i class="fa-solid fa-envelope"></i> Contacter</a>
+
+        </div>
+
+    </div>
+
+    {% else %}
+
+</div>
+
+<p class="no-article my-5 col-12 text-center text-light bg-none">Aucun utilisateurs à afficher.</p>
+
+{% endfor %}
+
+<div class="my-5 d-flex justify-content-center">
+    <a id="back" class="mx-auto" href="{{ path('home') }}"><i class="fa-solid fa-backward"></i> Retour</a>
+</div>
+
+{% endblock %}

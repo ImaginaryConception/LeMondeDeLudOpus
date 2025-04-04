@@ -1,0 +1,671 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block header %}Le Monde de Lud'Opus
+{% endblock %}
+
+{% block body %}
+
+	<div class="home-cover row my-5">
+		{% if app.user %}
+			<h1 class="text-light mx-auto text-center w-100 mt-5 col-12 col-lg-12" id="fixed-title">Bienvenue
+				{{ app.user.firstname }}
+				!</h1>
+		{% else %}
+			<h1 class="text-light mx-auto text-center w-100 mt-5 col-12 col-lg-12" id="fixed-title">Bienvenue !</h1>
+		{% endif %}
+
+		<div class="row my-5" id="carte-visite">
+			<img class="img-fluid" src="{{ asset('Images/cartevisite.png') }}" alt="">
+		</div>
+
+	</div>
+
+	<div class="row my-5 mx-auto" id="present-slider">
+		<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/1.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/2.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/3.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/4.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/5.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/6.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/7.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/8.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/9.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/10.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/11.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/12.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/13.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/14.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/15.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/16.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/17.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/18.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/19.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/20.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/21.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/22.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/23.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/24.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/25.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/26.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/27.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/28.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/29.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/30.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/31.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/32.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/33.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/34.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/35.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/36.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/37.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/38.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/39.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/40.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/41.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/42.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/43.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/44.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/45.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/46.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/47.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/48.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/49.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/50.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/51.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/52.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/53.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/54.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/55.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/56.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/57.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/58.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/59.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/60.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/61.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/62.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/63.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/64.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/65.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/66.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/67.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/68.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/69.jpg') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+				<div class="carousel-item" data-bs-interval="4000">
+					<img src="{{ asset('Images/Photos/70.png') }}" class="d-block img-fluid w-100 image-slider" alt="...">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Précédent</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Suivant</span>
+			</button>
+		</div>
+	</div>
+
+	<div class"row">
+
+		<h2 class="title-of-present text-center">Cartes cadeaux</h2>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class"row">
+
+		<p class="text-light text-center">10€</p>
+
+		<p class="text-light text-center">15€</p>
+
+		<p class="text-muted text-center">Valables pour tous les articles du magasin et utilisables en plusieurs fois.</p>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<h2 class="title-of-present text-center">Jeux de société</h2>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<p class="text-light text-center">Time bomb</p>
+
+		<p class="text-light text-center">Déclic family</p>
+
+		<p class="text-light text-center">1000 bornes</p>
+
+		<p class="text-light text-center">Jeu de l’hermine</p>
+
+		<p class="text-light text-center">Diavolo</p>
+
+		<p class="text-light text-center">Allumez les énigmes</p>
+
+		<p class="text-light text-center">Dix de chute</p>
+
+		<p class="text-light text-center">Complots 2</p>
+
+		<p class="text-light text-center">Les loups-garous de Thiercelieux</p>
+
+		<p class="text-light text-center">Nautic miles</p>
+
+		<p class="text-light text-center">Kipicot</p>
+
+		<p class="text-light text-center">Le petit bac (Schmidt / Ravensburger)</p>
+
+		<p class="text-light text-center">Spot it</p>
+
+		<p class="text-light text-center">Fantasy</p>
+
+		<p class="text-light text-center">Exit</p>
+
+		<p class="text-light text-center">Casse tête d’antan</p>
+
+		<p class="text-light text-center">Différence</p>
+
+		<p class="text-light text-center">Ordleg word play</p>
+
+		<p class="text-light text-center">Arts sudoku</p>
+
+		<p class="text-light text-center">A l’heure du crime… Où étiez-vous?</p>
+
+		<p class="text-light text-center">Gobbit</p>
+
+		<p class="text-light text-center">Dragon</p>
+
+		<p class="text-light text-center">Le poker des cafards</p>
+
+		<p class="text-light text-center">Kit énigmes</p>
+
+		<p class="text-light text-center">Jeu d’échec</p>
+
+		<p class="text-light text-center">Excellence</p>
+
+		<p class="text-light text-center">Petits mensonges entre amis</p>
+
+		<p class="text-light text-center">Soirée quizz</p>
+
+		<p class="text-light text-center">Jeux de soirée</p>
+
+		<p class="text-light text-center">7 familles</p>
+
+		<p class="text-light text-center">Kit poker</p>
+
+		<p class="text-light text-center">Escape game spécial famille</p>
+
+		<p class="text-light text-center">Scrabble</p>
+
+		<p class="text-light text-center">Diamino</p>
+
+		<h3 class="title-of-present text-center">Jeunesse</h2>
+
+		<p class="text-light text-center">Monopoly junior</p>
+
+		<p class="text-light text-center">Trivial poursuit junior</p>
+
+		<p class="text-light text-center">Monopoly junior reine des neiges</p>
+
+		<p class="text-light text-center">C’est pas sorcier le jeu</p>
+
+		<p class="text-light text-center">Le jeu du charivari</p>
+
+		<p class="text-light text-center">Mémo sonore</p>
+
+		<p class="text-light text-center">Grimaces</p>
+
+		<p class="text-light text-center">Domino circus</p>
+
+		<p class="text-light text-center">Les fous du sport</p>
+
+		<p class="text-light text-center">Reconnaître formes et couleurs</p>
+
+		<p class="text-light text-center">Pippo</p>
+
+		<p class="text-light text-center">Look an find x2</p>
+
+		<p class="text-light text-center">Domino des heures</p>
+
+		<p class="text-light text-center">Le compte est juste</p>
+
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<h2 class="title-of-present text-center">Boissons fraîches - 2€</h2>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<p class="text-light text-center">Pepsi</p>
+
+		<p class="text-light text-center">Pepsi max</p>
+
+		<p class="text-light text-center">Oasis tropical</p>
+
+		<p class="text-light text-center">7up</p>
+
+		<p class="text-light text-center">7up mojito</p>
+
+		<p class="text-light text-center">Ice-Tea</p>
+
+		<p class="text-light text-center">Orangina</p>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<h2 class="title-of-present text-center">Boissons chaudes - 1.00€</h2>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<p class="text-light text-center">Café</p>
+
+		<p class="text-light text-center">Thé (noir saveur citron, vert de Chine, Earl Grey bergamote)</p>
+
+		<p class="text-light text-center">Infusions (fruits rouges, menthe, verveine orange)</p>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<h2 class="title-of-present text-center">Tables de jeux</h2>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<p class="text-light text-center">Libre accès à tout les jeux du magasin pour 1h30 (possibilité d’amener son matériel)</p>
+
+		<p class="text-light text-center">Location et créneaux horaires via le site, par téléphone ou au magasin.</p>
+
+		<p class="text-light text-center">1 consommation au choix demandée</p>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<h2 class="title-of-present text-center">Aide aux devoirs / Soutien Scolaire</h2>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<p class="text-light text-center">9€ pour 1 heure</p>
+
+		<p class="text-light text-center">Prise de rendez-vous via le site (page de
+			<a href="{{ path('contact') }}">contact</a>), par téléphone (les infos
+			<a href="{{ path('clock') }}">ici</a>) ou en magasin.</p>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<h2 class="title-of-present text-center">Tarifs poches</h2>
+
+	</div>
+
+	<hr class="text-light mx-auto w-25">
+
+	<div class="row">
+
+		<p class="text-light text-center">1 livre = 2€</p>
+
+		<p class="text-light text-center">2 livres = 3.5€</p>
+
+		<p class="text-light text-center">3 livres = 4.5€</p>
+
+		<p class="text-light text-center">4 livres = 5€</p>
+
+	</div>
+
+
+	<div id="global-view" class="row p-3">
+
+		{% for article in articles %}
+
+			<div id="view-list" class="row mx-auto">
+
+				{% if article.photo == '' %}
+
+					<p class="text-light article-no-title text-center">
+						<span class="fw-bold">Titre</span>
+					</p>
+					<p class="text-light article-size text-center">{{ article.title }}</p>
+					<hr class="text-light mx-auto w-25">
+					<p class="text-light article-size text-center">
+						{% if article.author == null %}
+							<p class="text-warning article-size d-flex justify-content-center text-center">Auteur non précisé</p>
+						{% else %}
+							<p class="text-light article-no-title text-center">
+								<span class="fw-bold">Auteur</span>
+							</p>
+							<p class="text-light article-size text-center">{{ article.author }}</p>
+						{% endif %}
+						<hr class="text-light mx-auto w-25">
+					</p>
+					<p class="text-light article-no-title text-center">
+						<span class="fw-bold">Édition</span>
+					</p>
+					<p class="text-light article-size text-center">{{ article.edition }}</p>
+					<hr class="text-light mx-auto w-25">
+					<p class="text-light article-no-title text-center">
+						<span class="fw-bold">Prix</span>
+					</p>
+					<p class="text-light article-size text-center">
+						{% if article.price == 'offert' %}Offert
+							{% elseif article.price == 'Non renseigné' %}Non renseigné
+						{% else %}
+							{{ article.price }}€
+						{% endif %}
+					</p>
+
+					<p class="text-warning article-no-photo d-flex justify-content-center text-center">Pas d'image fournie</p>
+
+					<div id="view-photo" class="d-none image">
+						<img class="img-fluid" src="{{ asset('Images/Article/' ~ article.photo) }}" alt="">
+					</div>
+
+					<div class="d-flex justify-content-center my-5" id="btn-row">
+
+						<a class="reserver" href="{{ path('reservation', {'id': article.id }) }}">
+							<i class="fa-solid fa-basket-shopping"></i>
+							Réserver</a>
+
+						<a class="see-more" href="{{ path('article_view', {'id': article.id }) }}">
+							<i class="fa-solid fa-circle-info"></i>
+							Voir plus</a>
+
+						{% if is_granted('ROLE_ADMIN') %}
+
+							<a class="delete_article text-decoration-none" href="{{ path('delete_article', {'id': article.id, csrf_token: csrf_token('delete_article_' ~ article.id ) }) }}">
+								<i class="fa-solid fa-trash"></i>
+								Supprimer
+							</a>
+
+							<a href="{{ path('edit_article', {'id': article.id}) }}" class="edit_article text-decoration-none text-warning">
+								<i class="fa-solid fa-pen"></i>
+								Modifier
+							</a>
+
+						{% endif %}
+
+					</div>
+
+					{% if article.other == 'Poche' %}
+						<p class="if-result text-light">P</p>
+					{% elseif article.other == 'ANCIEN' %}
+						<p class="if-result text-light">A</p>
+					{% elseif article.other == 'dédicacé' %}
+						<p class="if-result text-light">D</p>
+					{% endif %}
+
+				{% else %}
+
+					<p class="text-light article-no-title text-center">
+						<span class="fw-bold mx-2">Titre
+						</span>
+						-
+						{{ article.title }}</p>
+
+					<p class="text-light article-no-author text-center">
+						{% if article.author == null %}
+							<p class="text-warning article-no-photo d-flex justify-content-center text-center">Auteur non précisé</p>
+						{% else %}
+							<span class="fw-bold mx-2">Auteur
+							</span>
+							-
+							{{ article.author }}</p>
+					{% endif %}
+
+					<p class="text-light article-no-edition text-center">
+						<span class="fw-bold mx-2">Édition
+						</span>
+						-
+						{{ article.edition }}</p>
+
+					<p class="text-light article-no-price text-center">
+						<span class="fw-bold mx-2">Prix
+						</span>
+						-
+						{% if article.price == 'offert' %}Offert
+							{% elseif article.price == 'Non renseigné' %}Non renseigné
+						{% else %}
+							{{ article.price }}€
+						{% endif %}
+					</p>
+
+					<div class="d-flex justify-content-center my-5" id="btn-row">
+
+						<a class="reserver" href="{{ path('reservation', {'id': article.id }) }}">
+							<i class="fa-solid fa-basket-shopping"></i>
+							Réserver</a>
+
+						<a class="see-more" href="{{ path('article_view', {'id': article.id }) }}">
+							<i class="fa-solid fa-circle-info"></i>
+							Voir plus</a>
+
+						{% if is_granted('ROLE_ADMIN') %}
+
+							<a class="delete_article text-decoration-none" href="{{ path('delete_article', {'id': article.id, csrf_token: csrf_token('delete_article_' ~ article.id ) }) }}">
+								<i class="fa-solid fa-trash"></i>
+								Supprimer
+							</a>
+
+							<a href="{{ path('edit_article', {'id': article.id}) }}" class="edit_article text-decoration-none text-warning">
+								<i class="fa-solid fa-pen"></i>
+								Modifier
+							</a>
+
+						{% endif %}
+
+					</div>
+
+					{% if article.other == 'Poche' %}
+						<p class="if-result text-light">P</p>
+					{% elseif article.other == 'ANCIEN' %}
+						<p class="if-result text-light">A</p>
+					{% elseif article.other == 'dédicacé' %}
+						<p class="if-result text-light">D</p>
+					{% endif %}
+
+				{% endif %}
+
+			</div>
+
+			{% if article.photo == '' %}
+
+				<div id="view-photo" class="d-none image">
+					<img class="img-fluid" src="{{ asset('Images/Article/' ~ article.photo) }}" alt="">
+				</div>
+
+			{% else %}
+
+				<div id="view-photo" class="image">
+					<img class="img-fluid" src="{{ asset('Images/Article/' ~ article.photo) }}" alt="">
+				</div>
+
+			{% endif %}
+
+	{% else %}
+
+		</div>
+
+		<div class="row">
+			<p class="no-article my-5 col-12 text-center text-light bg-none">Aucun article disponible pour le moment.
+			</p>
+		</div>
+
+	{% endfor %}
+
+{% endblock %}

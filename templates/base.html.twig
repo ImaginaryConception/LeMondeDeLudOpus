@@ -1,0 +1,135 @@
+{% set route = app.request.attributes.get('_route')%}
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<!--[if lt IE 9]>
+		        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		        <![endif]-->
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}{% endblock %}
+			- Le Monde de Lud'Opus</title>
+		{% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('CSS/bootstrap.min.css') }}">
+		<link href="http://fonts.cdnfonts.com/css/snap-itc" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Finlandica&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+		<link rel="stylesheet" href="{{ asset('CSS/styles.css') }}">
+		<script src="{{ asset(('JS/bootstrap.bundle.min.js')) }}" defer></script>
+		<script src="{{ asset(('JS/script.js')) }}" defer></script>
+		{% block js %}{% endblock %}
+	</head>
+
+	<body>
+
+		<div class="container-fluid">
+
+			<div class="row">
+
+				<header class="col-12">
+
+					<img id="header-image" class="img-fluid" src="{{ asset('Images/background-header.png') }}" alt="">
+
+					<h1 class="text-light text-center col-11 col-lg-12" id="title"> {% block header %}{% endblock %}
+						</h1>
+
+						<img id="logo" class="img-fluid d-none d-xxl-block" src="{{ asset('Images/logo.png') }}" alt="">
+
+					</header>
+
+				</div>
+
+				{% include '_partials/_navbar.html.twig' %}
+
+				<div id="fb-root"></div>
+				<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v14.0&appId=430479205613381&autoLogAppEvents=1" nonce="um0zlXDD"></script>
+
+				<div id="fb-root"></div>
+				<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v14.0&appId=430479205613381&autoLogAppEvents=1" nonce="dZemvUI8"></script>
+
+				{% include '_partials/_flashes.html.twig' %}
+
+				<div class="d-none" id="overlay">
+					<nav class="navbar-nav d-none d-flex mx-auto d-xxl-block navbar-fullscreen col-xxl-6 p-0">
+						<ul class="m-0 ms-5 align-items-center">
+							<li class="nav-item">
+								<a class="nav-link px-3 text-center overlay-reopened{{ route == 'contact' ? ' active' }}" href="{{ path('contact') }}">
+									<i class="fa-solid fa-phone"></i>Contact</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link px-3 text-center overlay-reopened{{ route == 'clock' ? ' active' }}" href="{{ path('clock') }}">
+									<i class="fa-solid fa-clock"></i>Horaires/Accès</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+				<div class="d-none" id="profilOverlay">
+					<nav class="navbar-nav d-none d-flex mx-auto d-xxl-block navbar-fullscreen col-xxl-11 p-0">
+						<ul class="m-0 ms-5 align-items-center">
+							<li class="nav-item">
+								<a class="nav-link px-3 text-center overlay-reopened{{ route == 'profil' ? ' active' }}" href="{{ path('profil') }}">
+									<i class="fa-solid fa-user-pen"></i>Profil</a>
+							</li>
+                            <li class="nav-item">
+								<a class="nav-link px-3 text-center overlay-reopened{{ route == 'reservation_list' ? ' active' }}" href="{{ path('reservation_list') }}">
+									<i class="fa-solid fa-basket-shopping"></i>Mon panier</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link px-3 text-center overlay-reopened" href="{{ path('logout') }}">
+									<i class="fa-solid fa-user-xmark"></i>Déconnexion
+								</a>
+							</li>
+							{% if is_granted('ROLE_ADMIN') %}
+
+								<li class="nav-item">
+									<a class="nav-link px-3 text-center overlay-reopened" href="{{ path('add_article') }}">
+										<i class="fa-solid fa-circle-plus"></i>Ajouter un article
+									</a>
+								</li>
+
+								<li class="nav-item">
+									<a class="nav-link px-3 text-center overlay-reopened" href="{{ path('reservations') }}">
+										<i class="fa-solid fa-basket-shopping"></i>Réservations
+									</a>
+								</li>
+
+								<li class="nav-item">
+									<a class="nav-link px-3 text-center overlay-reopened" href="{{ path('users') }}">
+										<i class="fa-solid fa-users"></i>Utilisateurs
+									</a>
+								</li>
+
+							{% endif %}
+						</ul>
+					</nav>
+				</div>
+
+				{% block body %}
+				{% endblock %}
+
+			</div>
+
+			{% if app.user %}
+				<p id="status" class="d-none">logged</p>
+			{% else %}
+				<p id="status" class="d-none">unlogged</p>
+			{% endif %}
+
+			{% if (route == 'library') or (route == 'article_search') %}
+				<p id="route" class="d-none">yes</p>
+			{% else %}
+				<p id="route" class="d-none">no</p>
+			{% endif %}
+
+			{% include '_partials/_footer.html.twig' %}
+
+		</body>
+
+	</html>

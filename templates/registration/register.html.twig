@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block header %}Inscription{% endblock %}
+
+{% block body %}
+
+<div id="registration_form" class="row my-5 mx-auto">
+
+  {{ form_start( register_form ) }}
+
+  {{ form_errors( register_form ) }}
+
+  {{ form_row( register_form.lastname ) }}
+
+  {{ form_row( register_form.firstname ) }}
+
+  {{ form_row( register_form.email) }}
+
+  {{ form_row( register_form.plainPassword ) }}
+
+  <div class="mb-3">
+    <div class="mb-2 text-light">Captcha de sécurité *</div>
+    <div class="g-recaptcha" data-sitekey="{{ google_recaptcha_site_key }}"></div>
+  </div>
+
+  <p class="text-light text-center">En vous inscrivant, vous confirmez avoir lu et acceptée les <a href="{{ path('mentions_legales') }}">mentions légales</a>.</p>
+
+  <p class="text-light text-center">Déjà inscrit ? Connectez-vous <a href="{{ path('login') }}">ici</a>.</p>
+
+  {{ form_row( register_form.save ) }}
+
+  {{ form_end( register_form ) }}
+
+</div>
+
+
+{% endblock %}
+
+{% block js %}<script src="https://www.google.com/recaptcha/api.js" async defer></script>{% endblock %}

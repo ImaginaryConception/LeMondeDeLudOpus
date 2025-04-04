@@ -1,0 +1,156 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier
+{% endblock %}
+
+{% block header %}Mon panier
+{% endblock %}
+
+{% block body %}
+
+	<div id="global-view" class="row p-3">
+
+		{% for reservation in reservations %}
+
+			<div id="view-list" class="row mx-auto">
+
+				{% if reservation.article.photo == '' %}
+
+					<p class="text-light article-no-title text-center">
+						<span class="fw-bold">Titre</span>
+					</p>
+					<p class="text-light article-size text-center">{{ reservation.article.title }}</p>
+					<hr class="text-light mx-auto w-25">
+					<p class="text-light article-size text-center">
+						{% if reservation.article.author == null %}
+							<p class="text-warning article-size d-flex justify-content-center text-center">Auteur non précisé</p>
+						{% else %}
+							<p class="text-light article-no-title text-center">
+								<span class="fw-bold">Auteur</span>
+							</p>
+							<p class="text-light article-size text-center">{{ reservation.article.author }}</p>
+						{% endif %}
+						<hr class="text-light mx-auto w-25">
+					</p>
+					<p class="text-light article-no-title text-center">
+						<span class="fw-bold">Édition</span>
+					</p>
+					<p class="text-light article-size text-center">{{ reservation.article.edition }}</p>
+					<hr class="text-light mx-auto w-25">
+					<p class="text-light article-no-title text-center">
+						<span class="fw-bold">Prix</span>
+					</p>
+					<p class="text-light article-size text-center">
+						{% if reservation.article.price == 'offert' %}Offert
+							{% elseif reservation.article.price == 'Non renseigné' %}Non renseigné
+						{% else %}
+							{{ reservation.article.price }}€
+						{% endif %}
+					</p>
+
+					<p class="text-warning article-no-photo d-flex justify-content-center text-center">Pas d'image fournie</p>
+
+					<div id="view-photo" class="d-none image">
+						<img class="img-fluid" src="{{ asset('Images/Article/' ~ reservation.article.photo) }}" alt="">
+					</div>
+
+					<div class="d-flex justify-content-center my-5" id="btn-row">
+
+						<a id="cancelReserve" class="mx-auto" href="{{ path('cancelReservation', {'id': reservation.id }) }}">
+							<i class="fa-solid fa-ban"></i>
+							Annuler</a>
+
+					</div>
+
+					{% if reservation.article.other == 'Poche' %}
+						<p class="if-result text-light">P</p>
+					{% elseif reservation.article.other == 'ANCIEN' %}
+						<p class="if-result text-light">A</p>
+					{% elseif reservation.article.other == 'dédicacé' %}
+						<p class="if-result text-light">D</p>
+					{% endif %}
+
+				{% else %}
+
+					<p class="text-light article-no-title text-center">
+						<span class="fw-bold mx-2">Titre
+						</span>
+						-
+						{{ reservation.article.title }}</p>
+
+					<p class="text-light article-no-author text-center">
+						{% if reservation.article.author == null %}
+							<p class="text-warning article-no-photo d-flex justify-content-center text-center">Auteur non précisé</p>
+						{% else %}
+							<span class="fw-bold mx-2">Auteur
+							</span>
+							-
+							{{ reservation.article.author }}</p>
+					{% endif %}
+
+					<p class="text-light article-no-edition text-center">
+						<span class="fw-bold mx-2">Édition
+						</span>
+						-
+						{{ reservation.article.edition }}</p>
+
+					<p class="text-light article-no-price text-center">
+						<span class="fw-bold mx-2">Prix
+						</span>
+						-
+						{% if reservation.article.price == 'offert' %}Offert
+							{% elseif reservation.article.price == 'Non renseigné' %}Non renseigné
+						{% else %}
+							{{ reservation.article.price }}€
+						{% endif %}
+					</p>
+
+					<div class="d-flex justify-content-center my-5" id="btn-row">
+
+						<a id="cancelReserve" class="mx-auto" href="{{ path('cancelReservation', {'id': reservation.id }) }}">
+							<i class="fa-solid fa-ban"></i>
+							Annuler</a>
+
+					</div>
+
+					{% if reservation.article.other == 'Poche' %}
+						<p class="if-result text-light">P</p>
+					{% elseif reservation.article.other == 'ANCIEN' %}
+						<p class="if-result text-light">A</p>
+					{% elseif reservation.article.other == 'dédicacé' %}
+						<p class="if-result text-light">D</p>
+					{% endif %}
+
+				{% endif %}
+
+			</div>
+
+			{% if reservation.article.photo == '' %}
+
+				<div id="view-photo" class="d-none image">
+					<img class="img-fluid" src="{{ asset('Images/Article/' ~ reservation.article.photo) }}" alt="">
+				</div>
+
+			{% else %}
+
+				<div id="view-photo" class="image">
+					<img class="img-fluid" src="{{ asset('Images/Article/' ~ reservation.article.photo) }}" alt="">
+				</div>
+
+			{% endif %}
+
+	{% else %}
+
+		</div>
+
+		<p class="no-article my-5 col-12 text-center text-light bg-none">Aucun article dans votre panier.</p>
+
+	{% endfor %}
+
+	<div class="my-5 d-flex justify-content-center">
+		<a id="back" class="mx-auto" href="{{ path('profil') }}">
+			<i class="fa-solid fa-backward"></i>
+			Retour</a>
+	</div>
+
+{% endblock %}

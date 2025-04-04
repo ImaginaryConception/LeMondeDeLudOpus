@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article
+{% endblock %}
+
+{% block header %}Le Monde de Lud'Opus
+{% endblock %}
+
+{% block body %}
+
+	<div class="row mx-auto flex-column flex-xxl-row my-5">
+
+		<div class="row my-2 my-md-3 mt-4">
+
+			<h2 class="text-light text-center col-12 py-3">Un avis ?</h2>
+
+			{% if app.user %}
+
+				<div id="add_comment_form" class="row my-5 mx-auto">
+
+					{{ form_start(commentForm) }}
+
+					{{ form_errors(commentForm) }}
+
+					{{ form_row(commentForm.content) }}
+
+					{{ form_row(commentForm.save) }}
+
+					{{ form_end(commentForm) }}
+
+				</div>
+
+			{% else %}
+				<p class="text-center text-warning mt-4 col-12">Vous devez
+					<a href="{{ path('login') }}">vous connecter</a>
+					pour laisser un commentaire !</p>
+			{% endif %}
+
+			<h2 class="text-center text-light py-3 col-12 mt-4">Commentaires ({{ article.comments|length }})</h2>
+
+			<div class="d-flex flex-column overflow-auto position-relative flex-lg-row">
+
+				{% for comment in article.comments %}
+					<div class="d-flex comments mb-4 flex-column mx-auto">
+
+						<div class="text-center">
+							<p class="article-size text-light">Publié le</p>
+							<p class="article-size text-light">
+								<span class="fw-bold text-muted">{{ comment.publicationDate|date('d/m/Y') }}</span>
+							</p>
+						</div>
+						<hr class="text-light mx-auto w-25">
+						<div class="text-center">
+							<p class="article-size text-light">à</p>
+							<p class="article-size text-light">
+								<span class="fw-bold text-muted">{{ comment.publicationDate|date('H\\hi') }}</span>
+							</p>
+						</div>
+						<hr class="text-light mx-auto w-25">
+						<div class="text-center">
+							<p class="article-size text-light">par</p>
+							<p class="article-size text-light">
+								<span class="fw-bold text-muted">{{ comment.author.firstname }}
+									{{ comment.author.lastname }}</span>
+							</p>
+						</div>
+						<hr class="text-light mx-auto w-25">
+						<div class="text-center text-break">
+							<p class="article-size text-light">Contenu:</p>
+							<br>
+							<p class="article-size text-light text-break">
+								<span class="fw-bold">{{ comment.content|nl2br }}</span>
+							</p>
+						</div>
+
+						{% if (is_granted('ROLE_ADMIN')) %}
+							<a href="{{ path('comment_delete', {'id': comment.id, csrf_token: csrf_token('comment_delete_' ~ comment.id )}) }}" id="comment-delete" class="mt-5 text-decoration-none text-center">
+								<i class="fa-solid fa-trash"></i>
+								Supprimer</a>
+						{% endif %}
+
+					</div>
+
+				{% else %}
+
+					<p class="article-size my-5 col-12 text-center text-light bg-none">Soyez le premier à commenter !</p>
+
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+{% endblock %}

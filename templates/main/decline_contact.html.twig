@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Décliner{% endblock %}
+
+{% block header %}Décliner{% endblock %}
+
+{% block body %}
+
+<div id="decline_reserve_form" class="row my-5 mx-auto">
+
+  {{ form_start( decline_form ) }}
+
+  {{ form_errors( decline_form ) }}
+
+  {{ form_row( decline_form.email) }}
+
+  <p class="text-light text-center">Laissez votre adresse e-mail à l'utilisateur afin qu'il puisse vous recontacter, si besoin.</p>
+
+  {{ form_row( decline_form.reason) }}
+
+  <p class="text-light text-center">Informez l'utilisateur, pourquoi la réservation a t-elle été déclinée ?</p>
+
+  {{ form_row( decline_form.save ) }}
+
+  {{ form_end( decline_form ) }}
+
+</div>
+
+{% endblock %}

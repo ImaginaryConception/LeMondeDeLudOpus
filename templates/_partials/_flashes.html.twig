@@ -1,0 +1,40 @@
+{% if app.session.flashBag.has('success') or app.session.flashBag.has('error') %}
+
+    <div class="container">
+        <div class="row">
+
+            {# Affichage des messages flashes de type "success" #}
+            {% for message in app.flashes('success') %}
+
+                <div class="alert flashes text-success text-center col-11 col-xl-5 my-5 p-3 mx-auto alert-dismissible fade show fw-bold" role="alert">
+                    {{ message }}
+		            <button type="button" class="p-3 me-1 btn-close text-light" data-bs-dismiss="alert" aria-label="Close"></button>
+	            </div>
+
+            {% endfor %}
+
+            {# Affichage des messages flashes de type "info" #}
+            {% for message in app.flashes('info') %}
+
+                <div class="alert flashes text-light text-center col-11 col-xl-5 my-5 p-3 mx-auto alert-dismissible fade show fw-bold" role="alert">
+                    {{ message }}
+                    <button type="button" class="p-3 me-1 btn-close text-light" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            {% endfor %}
+
+
+            {# Affichage des messages flashes de type "error" #}
+            {% for message in app.flashes('error') %}
+
+                <div class="alert flashes text-danger text-center col-11 col-xl-5 my-5 p-3 mx-auto alert-dismissible fade show fw-bold" role="alert">
+                    {{ message }}
+                    <button type="button" class="p-3 me-1 btn-close text-light" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endif %}

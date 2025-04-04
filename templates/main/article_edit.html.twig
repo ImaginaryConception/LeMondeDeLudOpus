@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification d'un article{% endblock %}
+
+{% block header %}Modification d'un article{% endblock %}
+
+{% block body %}
+
+<div id="article_edit_form" class="row my-5 mx-auto">
+
+  {{ form_start( article_edit_form ) }}
+
+  {{ form_errors( article_edit_form ) }}
+
+  {{ form_row( article_edit_form.title ) }}
+
+  {{ form_row( article_edit_form.author ) }}
+
+  {{ form_row( article_edit_form.edition ) }}
+
+  {{ form_row( article_edit_form.genre ) }}
+
+  {{ form_row( article_edit_form.other ) }}
+
+  {{ form_row( article_edit_form.price ) }}
+
+  <p class="text-danger text-center">Vous pouvez écrire "Non renseigné" exactement de la même manière que sur cet exemple ou laisser le champ vide.</p>
+
+  {{ form_row( article_edit_form.photo ) }}
+
+  {{ form_row( article_edit_form.save ) }}
+
+  {{ form_end( article_edit_form ) }}
+
+</div>
+
+{% endblock %}

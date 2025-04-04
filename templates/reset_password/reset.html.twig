@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réinitialisation{% endblock %}
+
+{% block header %}Réinitialisation{% endblock %}
+
+{% block body %}
+
+<div id="reset_form" class="row w-50 my-5 mx-auto">
+    {{ form_start(resetForm) }}
+    {{ form_row(resetForm.plainPassword) }}
+    <button class="btn mt-4 w-100" id="reset_password_request_form_save">Envoyer</button>
+    {{ form_end(resetForm) }}
+</div>
+
+{% endblock %}

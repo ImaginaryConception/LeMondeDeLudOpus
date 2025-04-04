@@ -1,0 +1,16 @@
+<div style="display: flex; justify-content: center; text-align: center; margin-top: 1.5rem;">
+  <p><span style="font-weight: bold;">Votre réservation numéro {{ reservation_id }} d'un montant {% if reservation_price == 'Non renseigné' %}non renseigné{% else %}de {{ reservation_price }}€{% endif %} chez Le Monde de Lud'Opus a bien été confirmée!</p>
+</div>
+<div style="display: flex; justify-content: center; text-align: center; margin-top: 1.5rem;">
+  {% if confirm_reserve_form_instructions is null %}
+    <p>Vous pouvez dorénavant récupérer votre article en magasin à l'adresse suivante: <span style="font-weight: bold;">4 Rue Pierre Mendès France, 71200 Le Creusot, France. Du Mardi au Samedi de 9h à 11h30 et de 14h à 19h.</span></p>
+  {% else %}
+   <p>Voici les instructions de la librairie afin de récupérer votre article: <span style="font-weight: bold;">{{ confirm_reserve_form_instructions }}</span></p>
+  {% endif %}
+</div>
+<div style="display: flex; justify-content: center; text-align: center; margin-top: 1.5rem;">
+  <p>Si vous avez des questions, vous pouvez nous contacter depuis ce mail: <span style="font-weight: bold;">{{ confirm_reserve_form_email }} ou appeler le 07 82 02 21 94.</span></p>
+</div>
+<div style="display: flex; justify-content: center; text-align: center; margin-top: 1.5rem;">
+  <p>Merci pour votre confiance et bonne lecture! <span style="font-weight: bold;">Le Monde de Lud'Opus</span>.</p>
+</div>

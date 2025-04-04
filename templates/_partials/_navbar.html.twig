@@ -1,0 +1,188 @@
+<div class="container-fluid mx-auto">
+
+    <div class="row navbar-container">
+
+        <!-- SIDEBAR -->
+        <nav class="navbar navbar-dark col-3 col-md-4 py-2 d-xxl-none">
+
+            <!-- Sidebar Mobile/Tablet format -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="offcanvas offcanvas-start bg-black" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+
+                <div class="offcanvas-header mt-5">
+                    <button type="button" class="btn-close-sidebar p-3 px-4 text-light" data-bs-dismiss="offcanvas"
+                        aria-label="Close">X</button>
+                    <img id="logo-mobile" class="img-fluid d-xxl-none" src="{{ asset('Images/logo.png') }}" alt="">
+                </div>
+
+                <div class="offcanvas-body bg-black px-3 py-2 side-container">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a id="mobile-accueil" class="nav-bile pe-3"
+                                href="{{ path('home') }}"><i class="fa-solid fa-house px-3"></i>Accueil</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a id="mobile-bibli" class="nav-bile my-3 pe-3"
+                                href="{{ path('library') }}"><i class="fa-solid fa-book-open px-3"></i>Bibliothèque</a>
+                        </li>
+
+                        <hr class="text-light">
+
+                        {# Bouton quand l'utilisateur est connecté #}
+                        {% if app.user %}
+
+
+                            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-bile pe-3"
+                                        href="{{ path('profil') }}"><i class="fa-solid fa-user-pen px-3"></i>Profil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-bile pe-3"
+                                        href="{{ path('reservation_list') }}"><i class="fa-solid fa-basket-shopping px-3"></i>Mon panier</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-bile pe-3" href="{{ path('logout') }}">
+                                        <i class="fa-solid fa-user-xmark px-3"></i>Déconnexion
+                                    </a>
+                                </li>
+
+                                <hr class="text-light">
+
+                                {% if is_granted('ROLE_ADMIN') %}
+
+                                <li class="nav-item">
+                                    <a class="nav-bile pe-3"
+                                        href="{{ path('add_article') }}">
+                                        <i class="fa-solid fa-circle-plus px-3"></i>Ajouter un article
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-bile pe-3"
+                                        href="{{ path('reservations') }}">
+                                        <i class="fa-solid fa-basket-shopping px-3"></i>Réservations
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-bile pe-3" href="{{ path('users') }}">
+                                        <i class="fa-solid fa-users px-3"></i>Utilisateurs
+                                    </a>
+                                </li>
+
+                                {% endif %}
+
+                                <hr class="text-light">
+
+                            </ul>
+
+                        {# Bouton quand l'utilisateur n'est pas connecté #}
+                        {% else %}
+
+                        <li class="nav-item">
+                            <a id="mobile-connect" class="nav-bile px-3"
+                                href="{{ path('login') }}"><i class="fa-solid fa-user-check"></i> Connexion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a id="mobile-register"
+                                class="nav-bile px-3"
+                                href="{{ path('register') }}"><i class="fa-solid fa-user-plus"></i> Inscription</a>
+                        </li>
+
+                        <hr class="text-light">
+
+                        {% endif %}
+
+                        <li class="nav-item">
+                            <a id="mobile-contact"
+                                class="nav-bile px-3"
+                                href="{{ path('contact') }}"><i class="fa-solid fa-phone pe-3"></i>Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="mobile-clock" class="nav-bile px-3"
+                                href="{{ path('clock') }}"><i class="fa-solid fa-clock pe-3"></i>Horaires/Accès</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <!-- NAVBAR Only full Screen -->
+        <nav class="navbar-nav d-none d-xxl-block navbar-fullscreen col-xxl-6 p-0">
+            <ul class="m-0 align-items-center">
+                <li class="nav-item">
+                    <a id="home" class="nav-link px-3{{ route == 'home' ? ' nav-active' }}" href="{{ path('home') }}"><i
+                            class="fa-solid fa-house"></i>Accueil</a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="bibli" class="nav-link px-3{{ route == 'library' ? ' nav-active' }}"
+                        href="{{ path('library') }}"><i class="fa-solid fa-book-open"></i>Bibliothèque</a>
+                </li>
+                <li>
+                    <button class="autres btn text-light" id="drop-text" type="button">Autres <i
+                            class="the-angle fa-solid fa-angle-down"></i></button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- NAVBAR SEARCH -->
+        <nav class="col-8 col-md-8 py-2 col-lg-4 p-0 m-0 d-flex flex-row navbar-search">
+
+
+            {# Bouton CONNEXION quand l'utilisateur est connecté #}
+            {% if app.user %}
+
+            <div class="navbar-nav d-none d-xxl-block navbar-fullscreen col-xxl-4 p-0">
+                <button class="profil-dropdown btn text-light" id="drop-text" type="button">{{ app.user.firstname }} <i
+                        class="the-profil-angle fa-solid fa-angle-down"></i></button>
+            </div>
+
+            <p id="firstname-status" class="d-none">{{ app.user.firstname }}</p>
+
+            {# Bouton quand l'utilisateur n'est pas connecté #}
+            {% else %}
+
+            <div class="user-icon d-none d-xxl-block m-0">
+                <a id="connect" class="nav-link px-3{{ route == 'login' ? ' nav-active' }}"
+                    href="{{ path('login') }}">{# <i class="fa-solid fa-user-check"></i> #}Connexion</a>
+            </div>
+
+            <div class="user-icon d-none d-xxl-block m-0">
+                <a id="register" class="nav-link px-3{{ route == 'register' ? ' nav-active' }}"
+                    href="{{ path('register') }}">{# <i class="fa-solid fa-user-plus"></i> #}Inscription</a>
+            </div>
+
+            {% endif %}
+
+            <!-- Search form -->
+            <div class="search-form col-lg-7">
+                <form method="GET" action="{{ path('article_search') }}" class="search-box d-flex flex-row">
+                    <input id="search-book" type="text" placeholder="Rechercher un livre" name="search"
+                        aria-label="search" class="form-control">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+        </nav>
+
+        <div class="bg-black mx-auto d-inline-block d-none my-4 p-2" id="search-overlay">
+            <p class="text-danger my-auto">Recherche possible par <span class="italic fw-bold">titre</span>, <span
+                    class="italic fw-bold">auteur</span>, <span class="italic fw-bold">édition</span>, <span
+                    class="italic fw-bold">genre</span>, <span class="italic fw-bold">format</span> et <span
+                    class="italic fw-bold">prix</span>.</p>
+        </div>
+
+    </div>
+
+</div>

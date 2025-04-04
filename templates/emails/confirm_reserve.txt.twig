@@ -1,0 +1,13 @@
+Votre réservation numéro {{ reservation_id }} d'un montant {% if reservation_price == 'Non renseigné' %}non renseigné{% else %}de {{ reservation_price }}€{% endif %} chez Le Monde de Lud'Opus a bien été confirmée!
+
+{% if confirm_reserve_form_instructions is null %}
+Vous pouvez dorénavant récupérer votre article en magasin à l'adresse suivante: 4 Rue Pierre Mendès France, 71200 Le Creusot, France.
+{% else %}
+Voici les instructions de la librairie afin de récupérer votre article: {{ confirm_reserve_form_instructions }}
+{% endif %}
+
+Si vous avez des questions, vous pouvez nous contacter depuis ce mail: {{ confirm_reserve_form_email }} ou appeler le 07 82 02 21 94.
+
+Merci pour votre confiance et bonne lecture!
+
+Le Monde de Lud'Opus

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contacter l'utilisateur{% endblock %}
+
+{% block header %}Contacter l'utilisateur{% endblock %}
+
+{% block body %}
+
+<div id="contact_user_form" class="row my-5 mx-auto">
+
+  {{ form_start( contact_user_form ) }}
+
+  {{ form_errors( contact_user_form ) }}
+
+  {{ form_row( contact_user_form.email) }}
+
+  <p class="text-light text-center">Si l'utilisateur souhaite vous répondre en retour, il devra répondre à votre adresse e-mail ci-dessus.</p>
+
+  {{ form_row( contact_user_form.object ) }}
+
+  {{ form_row( contact_user_form.message ) }}
+
+  {{ form_row( contact_user_form.save ) }}
+
+  {{ form_end( contact_user_form ) }}
+
+</div>
+
+{% endblock %}

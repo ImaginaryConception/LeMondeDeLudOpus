@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block header %}Contact{% endblock %}
+
+{% block body %}
+
+<div id="contact_form" class="row my-5 mx-auto">
+
+  {{ form_start( contact_form ) }}
+
+  {{ form_errors( contact_form ) }}
+
+  {{ form_row( contact_form.lastname ) }}
+
+  {{ form_row( contact_form.firstname ) }}
+
+  {{ form_row( contact_form.email) }}
+
+  {{ form_row( contact_form.object ) }}
+
+  {{ form_row( contact_form.message ) }}
+
+ {# <div class="mb-3">
+    <div class="mb-2 text-light">Captcha de sécurité *</div>
+    <div class="g-recaptcha" data-sitekey="{{ google_recaptcha_site_key }}"></div>
+  </div> #}
+
+  <p class="text-light text-center">Pour plus d'infos sur l'adresse, la ville, le code postal, les horaires, le numéro de téléphone etc... Rendez-vous sur <a href="{{ path('clock') }}">cette page</a>.</p>
+
+  {{ form_row( contact_form.save ) }}
+
+  {{ form_end( contact_form ) }}
+
+</div>
+
+{% endblock %}
+
+{% block js %}<script src="https://www.google.com/recaptcha/api.js" async defer></script>{% endblock %}
